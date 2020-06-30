@@ -1,0 +1,118 @@
+<html>
+<head>
+    <title>challange 11</title>
+</head>
+<body>
+    <script>
+
+/* CHALLENGE 11 - Spread Operator
+Use Spread Operator to construct arr variable.
+*/
+
+"use strict";
+
+var a, b, c, d, arr;
+
+a = [1, 2];
+b = [4, 5];
+c = [8, 9, 10];
+d = 11;
+
+arr = [0, ...a, 3, ...b, 6, 7, ...c, d];
+
+console.log(arr);
+// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+</script>
+</body>
+</html>
+
+
+/* CHALLENGE 13 - Template Literals
+Create carInfo() function that
+will return info about each car.
+Car is considered cheap if it's price is <= 20000
+Car is considered expensive it it's price is > 20000
+*/
+
+"use strict";
+
+var cars = [
+  { brand: "Honda", price: 13000 },
+  { brand: "Rolls-Royce", price: 120000 }
+];
+
+function carInfo(car) {
+  return `Price of my new ${car.brand} \
+is ${car.price}$ and it is \
+${car.price <= 20000 ? "cheap" : "expensive"} car.`;
+}
+
+cars.forEach(car => console.log(carInfo(car)));
+/* Price of my new Honda is 13000$
+ and it is cheap car. */
+
+/* Price of my new Rolls-Royce
+ is 120000$ and it is expensive car. */
+
+___________
+
+/* CHALLENGE 15 - Iterate over String
+Count number of the lowercase vowel letters in the string.
+Vowel letters - a, e, i, o, u
+*/
+
+"use strict";
+
+var vowelsCount = 0;
+var vowels = ["a", "e", "i", "o", "u"];
+
+var str = "Today is best day of my life";
+
+// for (let i = 0; i < str.length; i++) {
+//   if (vowels.includes(str[i])) vowelsCount++;
+// }
+
+for (let s of str) {
+  if (vowels.includes(s)) vowelsCount++; // ES2016 (ES7) syntax
+}
+
+console.log(vowelsCount);
+// 8
+
+// challange 13 AND 15 to ask
+
+
+
+/* CHALLENGE 19 - Iterate over Object
+Create a function sumObjectValues() that will sum all values
+of the fields that contain numbers.
+Ensure that iteration is done only over own properties of the object.
+*/
+
+"use strict";
+
+var nums = {
+  a: 10,
+  b: 20,
+  c: "string",
+  d: 12
+};
+
+// Write code here
+function sumObjectValues(obj) {
+  let total = 0;
+  for (let k in obj) {
+    if (
+      typeof obj[k] === "number" &&
+      obj.hasOwnProperty(k)
+    )
+      total += obj[k];
+  }
+  return total;
+}
+
+console.log(sumObjectValues(nums));
+//42
+
+challange: 13 , 15, 19
